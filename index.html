@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#08090d">
+  <title>Thirumalai • Execution OS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>
+        <strong>THIRUMALAI</strong>
+        <span>EXECUTION OS</span>
+      </div>
+    </div>
+
+    <nav>
+      <button class="nav-btn active" data-page="dashboard">
+        <span>⌂</span> Dashboard
+      </button>
+
+      <button class="nav-btn" data-page="planner">
+        <span>✓</span> Daily Planner
+      </button>
+
+      <button class="nav-btn" data-page="leetcode">
+        <span>λ</span> LeetCode
+      </button>
+
+      <button class="nav-btn" data-page="learning">
+        <span>◈</span> Learning
+      </button>
+
+      <button class="nav-btn" data-page="entertainment">
+        <span>▶</span> Entertainment
+      </button>
+
+      <button class="nav-btn" data-page="progress">
+        <span>↗</span> Progress
+      </button>
+
+      <button class="nav-btn" data-page="history">
+        <span>◷</span> History
+      </button>
+
+      <button class="nav-btn" data-page="ai">
+        <span>✦</span> AI Coach
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button class="nav-btn" data-page="settings">
+        <span>⚙</span> Settings
+      </button>
+    </div>
+  </aside>
+
+
+  <main class="main">
+
+    <header class="topbar">
+      <div class="mobile-brand">
+        <div class="brand-mark">T</div>
+        <strong>EXECUTION OS</strong>
+      </div>
+
+      <div class="top-date">
+        <span id="currentDate"></span>
+        <strong id="currentTime"></strong>
+      </div>
+
+      <button class="icon-btn" id="quickAdd">＋</button>
+    </header>
+
+
+    <!-- DASHBOARD -->
+    <section class="page active" id="dashboard">
+
+      <div class="hero">
+        <div>
+          <div class="eyebrow">SEPTEMBER → DECEMBER 2026</div>
+          <h1>Build the day.<br><em>Build the future.</em></h1>
+          <p id="heroMessage">
+            Your execution is built one day at a time.
+          </p>
+        </div>
+
+        <div class="hero-date">
+          <span id="heroDay"></span>
+          <strong id="heroDate"></strong>
+        </div>
+      </div>
+
+
+      <div class="stats-grid">
+
+        <div class="stat-card">
+          <span>Today's Tasks</span>
+          <strong id="statTasks">0</strong>
+          <small id="statTaskSub">0 completed</small>
+        </div>
+
+        <div class="stat-card">
+          <span>Completion</span>
+          <strong id="statCompletion">0%</strong>
+          <small>Today's execution</small>
+        </div>
+
+        <div class="stat-card">
+          <span>LeetCode</span>
+          <strong id="statLeet">0</strong>
+          <small id="statLeetSub">problems completed</small>
+        </div>
+
+        <div class="stat-card">
+          <span>Focus Time</span>
+          <strong id="statFocus">0h</strong>
+          <small>recorded learning</small>
+        </div>
+
+      </div>
+
+
+      <div class="dashboard-grid">
+
+        <div class="panel phases-panel">
+          <div class="panel-head">
+            <div>
+              <span class="eyebrow">TODAY</span>
+              <h2>Execution Phases</h2>
+            </div>
+
+            <button class="secondary-btn" id="dashboardAdd">
+              + Task
+            </button>
+          </div>
+
+          <div id="dashboardPhases"></div>
+        </div>
+
+
+        <div class="panel ai-mini">
+          <div class="ai-orb">✦</div>
+
+          <span class="eyebrow">AI COACH</span>
+
+          <h2 id="aiMiniTitle">Ready when you are.</h2>
+
+          <p id="aiMiniText">
+            I'll analyze your execution and tell you where you are falling behind.
+          </p>
+
+          <button class="primary-btn" id="openAI">
+            Analyze Today →
+          </button>
+        </div>
+
+      </div>
+
+
+      <div class="panel quote-panel">
+        <div class="quote-symbol">“</div>
+        <p>தெய்வத்தான் ஆகா தெனினும் முயற்சிதன்<br>
+        மெய்வருத்தக் கூலி தரும்</p>
+        <span>— திருக்குறள்</span>
+      </div>
+
+    </section>
+
+
+
+    <!-- PLANNER -->
+    <section class="page" id="planner">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">DAILY EXECUTION</span>
+          <h1>Today's Planner</h1>
+          <p>Plan it. Execute it. Record it.</p>
+        </div>
+
+        <div class="mode-switch">
+          <button class="mode-btn active" data-mode="college">College Day</button>
+          <button class="mode-btn" data-mode="free">No College</button>
+        </div>
+      </div>
+
+
+      <div class="phase-board">
+
+        <div class="phase-card" id="phase1">
+          <div class="phase-top">
+            <div class="phase-number">01</div>
+
+            <div>
+              <span>PHASE 1</span>
+              <h2>Deep Work</h2>
+            </div>
+
+            <div class="phase-time" id="phase1Time">
+              09:00 — 12:30
+            </div>
+          </div>
+
+          <div class="task-list" id="tasks-phase1"></div>
+
+          <button class="add-task-btn" data-phase="phase1">
+            + Add task to Phase 1
+          </button>
+        </div>
+
+
+        <div class="phase-card" id="phase2">
+          <div class="phase-top">
+            <div class="phase-number">02</div>
+
+            <div>
+              <span>PHASE 2</span>
+              <h2>Build & Learn</h2>
+            </div>
+
+            <div class="phase-time" id="phase2Time">
+              13:30 — 16:30
+            </div>
+          </div>
+
+          <div class="task-list" id="tasks-phase2"></div>
+
+          <button class="add-task-btn" data-phase="phase2">
+            + Add task to Phase 2
+          </button>
+        </div>
+
+
+        <div class="phase-card" id="phase3">
+          <div class="phase-top">
+            <div class="phase-number">03</div>
+
+            <div>
+              <span>PHASE 3</span>
+              <h2>Night Execution</h2>
+            </div>
+
+            <div class="phase-time" id="phase3Time">
+              19:00 — 01:00
+            </div>
+          </div>
+
+          <div class="task-list" id="tasks-phase3"></div>
+
+          <button class="add-task-btn" data-phase="phase3">
+            + Add task to Phase 3
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- LEETCODE -->
+    <section class="page" id="leetcode">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">DSA CONSISTENCY</span>
+          <h1>LeetCode</h1>
+          <p>One problem every day.</p>
+        </div>
+      </div>
+
+      <div class="leetcode-grid">
+
+        <div class="panel streak-panel">
+          <span class="eyebrow">CURRENT STREAK</span>
+          <strong id="leetcodeStreak">0</strong>
+          <span>days</span>
+
+          <div class="streak-fire">🔥</div>
+        </div>
+
+        <div class="panel">
+          <span class="eyebrow">TODAY'S PROBLEM</span>
+
+          <form id="leetcodeForm">
+
+            <input
+              id="leetcodeName"
+              placeholder="Problem name"
+              required
+            >
+
+            <select id="leetcodeDifficulty">
+              <option>Easy</option>
+              <option>Medium</option>
+              <option>Hard</option>
+            </select>
+
+            <input
+              id="leetcodeLink"
+              placeholder="Problem URL (optional)"
+            >
+
+            <button class="primary-btn">
+              Mark Solved
+            </button>
+
+          </form>
+        </div>
+
+      </div>
+
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">HISTORY</span>
+            <h2>Problems Solved</h2>
+          </div>
+        </div>
+
+        <div id="leetcodeHistory"></div>
+      </div>
+
+    </section>
+
+
+
+    <!-- LEARNING -->
+    <section class="page" id="learning">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">KNOWLEDGE</span>
+          <h1>Learning</h1>
+          <p>Track the skills that compound.</p>
+        </div>
+
+        <button class="primary-btn" id="addLearning">
+          + Learning Session
+        </button>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span>Sessions</span>
+          <strong id="learningSessions">0</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Total Hours</span>
+          <strong id="learningHours">0h</strong>
+        </div>
+
+        <div class="stat-card">
+          <span>Current Area</span>
+          <strong id="learningArea">—</strong>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div id="learningHistory"></div>
+      </div>
+
+    </section>
+
+
+
+    <!-- ENTERTAINMENT -->
+    <section class="page" id="entertainment">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">RECOVERY / ENTERTAINMENT</span>
+          <h1>Entertainment</h1>
+          <p>Enjoy it consciously. Don't let it consume the day.</p>
+        </div>
+      </div>
+
+      <div class="entertainment-layout">
+
+        <div class="panel timer-panel">
+
+          <span class="eyebrow">LIVE COUNTER</span>
+
+          <div class="timer-display" id="entTimer">
+            00:00:00
+          </div>
+
+          <div class="timer-actions">
+            <button class="primary-btn" id="startEntertainment">
+              Start
+            </button>
+
+            <button class="secondary-btn" id="stopEntertainment">
+              Stop
+            </button>
+          </div>
+
+          <select id="entCategory">
+            <option>Movie</option>
+            <option>YouTube</option>
+            <option>Gaming</option>
+            <option>Music</option>
+            <option>Other</option>
+          </select>
+
+        </div>
+
+
+        <div class="panel">
+          <span class="eyebrow">TODAY</span>
+
+          <div class="big-number" id="todayEntertainment">
+            0h 0m
+          </div>
+
+          <div id="entHistory"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- PROGRESS -->
+    <section class="page" id="progress">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">SEPTEMBER → DECEMBER</span>
+          <h1>Your Progress</h1>
+          <p>Your past execution stays recorded.</p>
+        </div>
+      </div>
+
+      <div class="progress-grid">
+
+        <div class="panel">
+          <span class="eyebrow">ALL TIME</span>
+          <strong class="progress-number" id="allTasks">0</strong>
+          <span>tasks created</span>
+        </div>
+
+        <div class="panel">
+          <span class="eyebrow">COMPLETED</span>
+          <strong class="progress-number" id="allCompleted">0</strong>
+          <span>tasks completed</span>
+        </div>
+
+        <div class="panel">
+          <span class="eyebrow">AVERAGE</span>
+          <strong class="progress-number" id="avgCompletion">0%</strong>
+          <span>daily completion</span>
+        </div>
+
+        <div class="panel">
+          <span class="eyebrow">DAYS ACTIVE</span>
+          <strong class="progress-number" id="activeDays">0</strong>
+          <span>recorded days</span>
+        </div>
+
+      </div>
+
+
+      <div class="panel chart-panel">
+
+        <div class="panel-head">
+          <div>
+            <span class="eyebrow">LAST 14 DAYS</span>
+            <h2>Execution Trend</h2>
+          </div>
+        </div>
+
+        <div class="chart" id="progressChart"></div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- HISTORY -->
+    <section class="page" id="history">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">YOUR RECORD</span>
+          <h1>Daily History</h1>
+          <p>Nothing disappears unless you delete it.</p>
+        </div>
+      </div>
+
+      <div class="history-controls">
+        <input type="month" id="historyMonth">
+        <input type="text" id="historySearch" placeholder="Search tasks...">
+      </div>
+
+      <div id="historyList"></div>
+
+    </section>
+
+
+
+    <!-- AI -->
+    <section class="page" id="ai">
+
+      <div class="ai-page">
+
+        <div class="ai-header">
+          <div class="ai-orb large">✦</div>
+
+          <span class="eyebrow">PERSONAL EXECUTION INTELLIGENCE</span>
+
+          <h1>AI Coach</h1>
+
+          <p>
+            Analyze your actual recorded behavior and turn it into
+            practical next actions.
+          </p>
+        </div>
+
+
+        <div class="ai-actions">
+          <button class="primary-btn ai-command" data-command="today">
+            Analyze Today
+          </button>
+
+          <button class="secondary-btn ai-command" data-command="week">
+            Analyze Week
+          </button>
+
+          <button class="secondary-btn ai-command" data-command="backlog">
+            Find My Backlog
+          </button>
+
+          <button class="secondary-btn ai-command" data-command="leetcode">
+            Analyze LeetCode
+          </button>
+        </div>
+
+
+        <div class="panel ai-output" id="aiOutput">
+          <span class="eyebrow">AI RESPONSE</span>
+
+          <h2>Waiting for your command.</h2>
+
+          <p>
+            Choose an analysis above.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- SETTINGS -->
+    <section class="page" id="settings">
+
+      <div class="page-heading">
+        <div>
+          <span class="eyebrow">SYSTEM</span>
+          <h1>Settings</h1>
+          <p>Control your execution system.</p>
+        </div>
+      </div>
+
+
+      <div class="settings-grid">
+
+        <div class="panel">
+          <span class="eyebrow">BACKUP</span>
+          <h2>Your Data</h2>
+          <p>Export your entire planner as a JSON backup.</p>
+
+          <button class="primary-btn" id="exportData">
+            Export Data
+          </button>
+
+          <label class="secondary-btn file-label">
+            Import Data
+            <input type="file" id="importData" accept=".json">
+          </label>
+        </div>
+
+
+        <div class="panel danger-panel">
+          <span class="eyebrow">DANGER ZONE</span>
+          <h2>Reset</h2>
+          <p>This can permanently remove stored planner data.</p>
+
+          <button class="danger-btn" id="resetToday">
+            Reset Today
+          </button>
+
+          <button class="danger-btn" id="resetEverything">
+            Delete Everything
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+
+
+<!-- TASK MODAL -->
+
+<div class="modal hidden" id="taskModal">
+
+  <div class="modal-box">
+
+    <button class="modal-close" id="closeTaskModal">×</button>
+
+    <span class="eyebrow">NEW TASK</span>
+    <h2 id="taskModalTitle">Add Task</h2>
+
+    <form id="taskForm">
+
+      <input type="hidden" id="editTaskId">
+
+      <label>
+        Task
+        <input id="taskTitle" required placeholder="What needs to be done?">
+      </label>
+
+      <label>
+        Phase
+        <select id="taskPhase">
+          <option value="phase1">Phase 1</option>
+          <option value="phase2">Phase 2</option>
+          <option value="phase3">Phase 3</option>
+        </select>
+      </label>
+
+      <label>
+        Priority
+        <select id="taskPriority">
+          <option>High</option>
+          <option selected>Medium</option>
+          <option>Low</option>
+        </select>
+      </label>
+
+      <label>
+        Estimated minutes
+        <input id="taskMinutes" type="number" min="1" value="30">
+      </label>
+
+      <label>
+        Notes
+        <textarea id="taskNotes" placeholder="Optional notes..."></textarea>
+      </label>
+
+      <button class="primary-btn full">
+        Save Task
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
+<!-- LEARNING MODAL -->
+
+<div class="modal hidden" id="learningModal">
+
+  <div class="modal-box">
+
+    <button class="modal-close" id="closeLearningModal">×</button>
+
+    <span class="eyebrow">LEARNING</span>
+    <h2>Record Session</h2>
+
+    <form id="learningForm">
+
+      <label>
+        Topic
+        <input id="learningTopic" required placeholder="Python / AI / React...">
+      </label>
+
+      <label>
+        Minutes
+        <input id="learningMinutes" type="number" min="1" value="60">
+      </label>
+
+      <label>
+        Notes
+        <textarea id="learningNotes"></textarea>
+      </label>
+
+      <button class="primary-btn full">
+        Save Session
+      </button>
+
+    </form>
+
+  </div>
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
